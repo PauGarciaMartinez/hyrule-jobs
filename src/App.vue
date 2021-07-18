@@ -1,16 +1,17 @@
 <template>
   <div class="app">
-    
+    <JobsList :jobs="jobs" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Job from './types/Job';
+import JobsList from './components/JobsList.vue';
 
 export default defineComponent({
   name: 'App',
-  components: {},
+  components: { JobsList },
   setup() {
     const jobs = ref<Job[]>([
       { title: 'Farm worker', location: 'Lon-Lon Ranch', salary: 30000, id: '1' }, 
