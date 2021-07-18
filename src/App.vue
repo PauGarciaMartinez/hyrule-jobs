@@ -1,32 +1,20 @@
 <template>
   <div class="app">
-    <p>{{ name }} - {{ age }}</p>
-    <button @click="changeName('Zelda')">Change Name</button>
-    <button @click="changeAge(30)">Change Age</button>
+    
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, reactive, toRefs, ref } from 'vue';
 
 export default defineComponent({
   name: 'App',
   components: {},
-  data() {
-    return {
-      name: 'Link' as string,
-      age: 25 as number | string
-    }
-  },
-  methods: {
-    changeName(name: string) {
-      this.name = name;
-      return name;
-    },
-    changeAge(age: number | string) {
-      this.age = age;
-      return age;
-    }
+  setup() {
+    const name = ref<string>('Link')
+    const age = ref<number | string>(25)
+
+    return { name, age }
   }
 });
 </script>
